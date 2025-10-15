@@ -1,0 +1,16 @@
+{
+  "name": "2025_10_15",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node zad1.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mime-types": "^3.0.1"
+  }
+}
