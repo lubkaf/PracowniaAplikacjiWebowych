@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color: rgb(225, 225, 225);
+}
+header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linear-gradient(grey , darkgray);
+}
+nav{
+    width: 100%;
+    margin: 2em;
+    text-align: center;
+}
+nav a{
+    margin: 0 2em;
+}
+header h1{
+    text-align: center;
+    width:100%;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main > *{
+    width: calc(50% - 3em);
+    margin: 3em;
+    background: linear-gradient(grey , darkgray);
+    padding: 1em;
+    overflow: scroll;
+    width: 70%;
+    height: 40em;
+}
+p{
+    line-height: 1.5em;
+    word-spacing: 5px;
+}
+img{
+    width: 30em;
+    height: 30em;
+    margin: 1em;
+}
+li{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
