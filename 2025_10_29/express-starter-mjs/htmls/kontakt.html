@@ -12,8 +12,25 @@
   <nav>
     <a href="/">Strona główna</a>
     <a href="/oferta">oferta</a>
-    <a href="/onas">kontakt</a>
+    <a href="/o-nas">O nas</a>
   </nav>
 </header>
+<main>
+  <form action="/kontakt" method="POST">
+    <label for="imie">Imię:</label>
+    <input type="text" id="imie" name="imie" required />
+
+    <label for="nazwisko">Nazwisko:</label>
+    <input type="text" id="nazwisko" name="nazwisko" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="wiadomosc">Treść wiadomości:</label>
+    <textarea id="wiadomosc" name="wiadomosc" rows="5" required></textarea>
+
+    <button type="submit">Wyślij</button>
+  </form>
+</main>
 </body>
 </html>
