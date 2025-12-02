@@ -1,46 +1,63 @@
-import { Router } from 'express'
-import { PrismaClient } from '@prisma/client'
+import { Router } from 'express';
+import { PrismaClient } from '@prisma/client';
 
-const router = Router()
-const prisma = new PrismaClient()
+const router = Router();
+const prisma = new PrismaClient();
 
 router.get('/', async (req, res) => {
     const komentarze = await prisma.komentarz.findMany({
         include: { wpis: true }
-    })
-    res.json(komentarze)
-})
+    });
+
+    await req.logService.addLog("READ", "komentarz", komentarze);
+
+    res.json(komentarze);
+});
 
 router.get('/:id', async (req, res) => {
     const komentarz = await prisma.komentarz.findUnique({
         where: { id: Number(req.params.id) },
         include: { wpis: true }
-    })
-    res.json(komentarz)
-})
+    });
+
+    await req.logService.addLog("READ", "komentarz", komentarz);
+
+    res.json(komentarz);
+});
 
 router.post('/', async (req, res) => {
-    const { comment, wpisId } = req.body
+    const { comment, wpisId } = req.body;
+
     const newKomentarz = await prisma.komentarz.create({
         data: { comment, wpisId }
-    })
-    res.json(newKomentarz)
-})
+    });
+
+    await req.logService.addLog("CREATE", "komentarz", newKomentarz);
+
+    res.json(newKomentarz);
+});
 
 router.put('/:id', async (req, res) => {
-    const { comment } = req.body
+    const { comment } = req.body;
+
     const updated = await prisma.komentarz.update({
         where: { id: Number(req.params.id) },
         data: { comment }
-    })
-    res.json(updated)
-})
+    });
+
+    await req.logService.addLog("UPDATE", "komentarz", updated);
+
+    res.json(updated);
+});
 
 router.delete('/:id', async (req, res) => {
     const removed = await prisma.komentarz.delete({
         where: { id: Number(req.params.id) }
-    })
-    res.json(removed)
-})
+    });
 
-export default router
+    await req.logService.addLog("DELETE", "komentarz", removed);
+
+    res.json(removed);
+});
+
+export default router;
