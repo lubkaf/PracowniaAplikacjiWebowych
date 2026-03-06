@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c2028a2a-20c0-4131-978b-ecd048f9bcbf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/2026_03_04_backend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/express-starter-ts/src/routes/komentarz/komentarz_router.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Powtorki/express_z_1/express-starter-mjs/assets/photo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Powtorki/express_z_1/express-starter-mjs/assets/x.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Powtorki/express_z_1/express-starter-mjs/pages/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Powtorki/express_z_1/express-starter-mjs/pages/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Powtorki/express_z_1/express-starter-mjs/pages/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Powtorki/express_z_1/express-starter-mjs/pages/offer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Powtorki/express_z_1/express-starter-mjs/routes/category.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Powtorki/express_z_1/express-starter-mjs/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-starter-ts/.env" beforeDir="false" afterPath="$PROJECT_DIR$/express-starter-ts/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-starter-ts/lib/prisma.ts" beforeDir="false" afterPath="$PROJECT_DIR$/express-starter-ts/lib/prisma.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-starter-ts/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/express-starter-ts/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-starter-ts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/express-starter-ts/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-starter-ts/prisma.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/express-starter-ts/prisma.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-starter-ts/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/express-starter-ts/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-starter-ts/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/express-starter-ts/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/express-starter-ts/src/routes/kategoria/kategoria_router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/express-starter-ts/src/routes/kategoria/kategoria_router.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="3AZt0tPwIrtlQq84W90tAIYRfnT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.index.ts.executor": "Run",
+    "Node.js.kategoria_router.ts.executor": "Run",
+    "Node.js.prisma.config.ts.executor": "Run",
+    "Node.js.prisma.ts.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Filip\\Desktop\\webowki\\PracowniaAplikacjiWebowych\\2026_03_04_backend\\express-starter-ts\\node_modules\\prettier",
+    "ts.external.directory.path": "C:\\Users\\Filip\\Desktop\\webowki\\PracowniaAplikacjiWebowych\\2026_03_04_backend\\express-starter-ts\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-WS-252.28238.10" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c2028a2a-20c0-4131-978b-ecd048f9bcbf" name="Changes" comment="" />
+      <created>1772811702656</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1772811702656</updated>
+      <workItem from="1772811703740" duration="4505000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
