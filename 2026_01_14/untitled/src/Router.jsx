@@ -1,8 +1,8 @@
 import {BrowserRouter, Route, Routes} from "react-router";
 
-import Home from "./routes/home.jsx";
-import Site_post from "./routes/site_post.jsx";
-import Site_categories from "./routes/site_categories.jsx";
+import Home from "./routes/Homepage/home.jsx";
+import Site_post from "./routes/Posts/site_post.jsx";
+import Site_categories from "./routes/Categories/site_categories.jsx";
 
 export default function Router(){
     return(

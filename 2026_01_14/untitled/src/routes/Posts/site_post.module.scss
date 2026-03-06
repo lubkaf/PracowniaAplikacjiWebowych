@@ -1,0 +1,58 @@
+.Posts {
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-block: 4rem;
+
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+
+  &Post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f1f1f1;
+    border: 0.1rem solid #505050;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 1rem;
+    transition: 0.5s ease-in-out;
+
+
+    &Title {
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    &Body {
+      font-size: 1.6rem;
+      color: #2f2f2f;
+      margin-bottom: 2rem;
+    }
+
+    &Link {
+      margin-top: 1rem;
+      display: block;
+      width: fit-content;
+      text-decoration: none;
+      color: #fff;
+      background-color: #2f2f2f;
+      transition: all 0.2s ease-in-out;
+      font-size: 1.4rem;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+
+      &:hover {
+        background-color: #505050;
+      }
+
+    }
+  }
+  &Post:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+    background-color: #e1e1e1;
+
+  }
+}
+
