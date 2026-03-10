@@ -5,12 +5,12 @@ const komentarzRouter = express.Router()
 komentarzRouter.use(express.json())
 komentarzRouter.use(express.urlencoded({ extended: true }))
 
-komentarzRouter.get('/get', async (req, res) => {
+komentarzRouter.get('/', async (req, res) => {
   const allKomentarz = await prisma.komentarz.findMany()
   res.status(200).json(allKomentarz);
 })
 
-komentarzRouter.get('/get/:id', async (req, res) => {
+komentarzRouter.get('/:id', async (req, res) => {
   const { id } = req.params
   const oneKomentarz = await prisma.komentarz.findUnique({
     where: {
@@ -20,7 +20,7 @@ komentarzRouter.get('/get/:id', async (req, res) => {
   res.status(200).json(oneKomentarz);
 })
 
-komentarzRouter.post('/post', async (req, res) => {
+komentarzRouter.post('/', async (req, res) => {
   const { comm } = req.body;
 
   try {
@@ -36,7 +36,7 @@ komentarzRouter.post('/post', async (req, res) => {
   }
 })
 
-komentarzRouter.put('/put/:id', async (req, res) => {
+komentarzRouter.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { comm } = req.body;
 
@@ -56,7 +56,7 @@ komentarzRouter.put('/put/:id', async (req, res) => {
   }
 })
 
-komentarzRouter.delete('/delete/:id', async (req, res) => {
+komentarzRouter.delete('/:id', async (req, res) => {
   const { id } = req.params
   const exists = await prisma.komentarz.findUnique({where:{id: parseInt(id)}})
   if (!exists) {
