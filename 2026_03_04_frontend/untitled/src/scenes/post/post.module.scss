@@ -1,0 +1,114 @@
+$primary-dark: #2f2f2f;
+$bg-light: #f1f1f1;
+$border-color: #505050;
+$text-muted: #666;
+$white: #ffffff;
+
+.Main {
+  font-family: 'Roboto', sans-serif;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  line-height: 1.6;
+  color: $primary-dark;
+}
+
+.PostContent {
+  background-color: $white;
+  padding: 3rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 2.5rem;
+    color: $primary-dark;
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+    border-bottom: 0.2rem solid $bg-light;
+    padding-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+    color: #444;
+    white-space: pre-line;
+  }
+}
+
+.CommentsSection {
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-left: 0.5rem;
+    border-left: 4px solid $primary-dark;
+  }
+}
+
+.CommentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.Comment {
+  background-color: $bg-light;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border-left: 1px solid $border-color;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateX(5px);
+  }
+
+  .CommentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    strong {
+      font-size: 1.5rem;
+      color: $primary-dark;
+      text-transform: capitalize;
+    }
+
+    .CommentEmail {
+      font-size: 1rem;
+      color: $text-muted;
+      font-style: italic;
+    }
+  }
+
+  .CommentBody {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+  }
+}
+
+.NoComments {
+  text-align: center;
+  color: $text-muted;
+  padding: 2rem;
+  background: $bg-light;
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .PostContent {
+    padding: 1.5rem;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .CommentHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
