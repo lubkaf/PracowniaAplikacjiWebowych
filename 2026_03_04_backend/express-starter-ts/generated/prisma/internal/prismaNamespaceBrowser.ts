@@ -52,8 +52,8 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   Wpis: 'Wpis',
-  Kategoria: 'Kategoria',
-  Komentarz: 'Komentarz'
+  Komentarz: 'Komentarz',
+  Kategoria: 'Kategoria'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -74,12 +74,21 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const WpisScalarFieldEnum = {
   id: 'id',
+  Title: 'Title',
   Text: 'Text',
-  KategoriaId: 'KategoriaId',
-  KomentarzId: 'KomentarzId'
+  KategoriaId: 'KategoriaId'
 } as const
 
 export type WpisScalarFieldEnum = (typeof WpisScalarFieldEnum)[keyof typeof WpisScalarFieldEnum]
+
+
+export const KomentarzScalarFieldEnum = {
+  id: 'id',
+  Komentarz: 'Komentarz',
+  WpisId: 'WpisId'
+} as const
+
+export type KomentarzScalarFieldEnum = (typeof KomentarzScalarFieldEnum)[keyof typeof KomentarzScalarFieldEnum]
 
 
 export const KategoriaScalarFieldEnum = {
@@ -91,14 +100,6 @@ export const KategoriaScalarFieldEnum = {
 export type KategoriaScalarFieldEnum = (typeof KategoriaScalarFieldEnum)[keyof typeof KategoriaScalarFieldEnum]
 
 
-export const KomentarzScalarFieldEnum = {
-  id: 'id',
-  Komentarz: 'Komentarz'
-} as const
-
-export type KomentarzScalarFieldEnum = (typeof KomentarzScalarFieldEnum)[keyof typeof KomentarzScalarFieldEnum]
-
-
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -108,17 +109,11 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
 export const WpisOrderByRelevanceFieldEnum = {
+  Title: 'Title',
   Text: 'Text'
 } as const
 
 export type WpisOrderByRelevanceFieldEnum = (typeof WpisOrderByRelevanceFieldEnum)[keyof typeof WpisOrderByRelevanceFieldEnum]
-
-
-export const KategoriaOrderByRelevanceFieldEnum = {
-  Opis: 'Opis'
-} as const
-
-export type KategoriaOrderByRelevanceFieldEnum = (typeof KategoriaOrderByRelevanceFieldEnum)[keyof typeof KategoriaOrderByRelevanceFieldEnum]
 
 
 export const KomentarzOrderByRelevanceFieldEnum = {
@@ -126,4 +121,11 @@ export const KomentarzOrderByRelevanceFieldEnum = {
 } as const
 
 export type KomentarzOrderByRelevanceFieldEnum = (typeof KomentarzOrderByRelevanceFieldEnum)[keyof typeof KomentarzOrderByRelevanceFieldEnum]
+
+
+export const KategoriaOrderByRelevanceFieldEnum = {
+  Opis: 'Opis'
+} as const
+
+export type KategoriaOrderByRelevanceFieldEnum = (typeof KategoriaOrderByRelevanceFieldEnum)[keyof typeof KategoriaOrderByRelevanceFieldEnum]
 

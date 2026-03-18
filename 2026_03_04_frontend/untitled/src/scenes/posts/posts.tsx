@@ -7,7 +7,7 @@ export default function Posts() {
     const { data: posts = [], isLoading, isError} = useQuery<Post[]>({
         queryKey: ["posts"],
         queryFn: () =>
-            fetch("https://jsonplaceholder.typicode.com/posts").then((res) => {
+            fetch("http://localhost:3000/wpis").then((res) => {
                 if (!res.ok) throw new Error("Failed to fetch posts.");
                 return res.json();
             }),
@@ -34,10 +34,10 @@ export default function Posts() {
             {posts.map((p) => (
                 <div className={styles.PostsPost} key={p.id}>
                     <h5 className={styles.PostsPostTitle}>
-                        {p.title.substring(0, 20)}...
+                        {p.Title.substring(0, 20)}...
                     </h5>
                     <p className={styles.PostsPostBody}>
-                        {p.body.substring(0, 50)}...
+                        {p.Text.substring(0, 50)}...
                     </p>
                     <Link
                         className={styles.PostsPostLink}

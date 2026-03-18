@@ -12,15 +12,18 @@ wpisRouter.get('/', async (req, res) => {
 
 wpisRouter.get('/:id', async (req, res) => {
   const { id } = req.params
-  const oneWpis = await prisma.wpis.findUnique({
-    where: {
-      id: parseInt(id)
+  const post = await prisma.wpis.findUnique({
+    where: { id: parseInt(id) },
+    include: {
+      Komentarze: true,
+      Kategoria: true
     }
   })
-  res.status(200).json(oneWpis);
+  if (!post) return res.status(404).json({ error: 'Post not found' })
+  res.status(200).json(post)
 })
 
-wpisRouter.post('/post', async (req, res) => {
+/*wpisRouter.post('/post', async (req, res) => {
   const { txt, KatId, KomId } = req.body;
 
   try {
@@ -74,7 +77,7 @@ wpisRouter.put('/put/:id', async (req, res) => {
   } catch (error) {
     return res.status(404).json({ error: error});
   }
-})
+})*/
 
 wpisRouter.delete('/delete/:id', async (req, res) => {
   const { id } = req.params

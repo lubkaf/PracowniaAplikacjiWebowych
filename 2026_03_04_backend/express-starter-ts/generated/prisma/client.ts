@@ -45,12 +45,12 @@ export { Prisma }
  */
 export type Wpis = Prisma.WpisModel
 /**
- * Model Kategoria
- * 
- */
-export type Kategoria = Prisma.KategoriaModel
-/**
  * Model Komentarz
  * 
  */
 export type Komentarz = Prisma.KomentarzModel
+/**
+ * Model Kategoria
+ * 
+ */
+export type Kategoria = Prisma.KategoriaModel

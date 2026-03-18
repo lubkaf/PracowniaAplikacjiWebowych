@@ -9,6 +9,6 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Wpis'
-export type * from './models/Kategoria'
 export type * from './models/Komentarz'
+export type * from './models/Kategoria'
 export type * from './commonInputTypes'

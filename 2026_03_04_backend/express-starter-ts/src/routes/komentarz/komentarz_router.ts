@@ -20,21 +20,22 @@ komentarzRouter.get('/:id', async (req, res) => {
   res.status(200).json(oneKomentarz);
 })
 
+// komentarz_router.ts
 komentarzRouter.post('/', async (req, res) => {
-  const { comm } = req.body;
+  const { comm, wpisId } = req.body;
 
   try {
-    const addKomentarz = await prisma.komentarz.create({
+    const newComment = await prisma.komentarz.create({
       data: {
         Komentarz: comm,
+        WpisId: parseInt(wpisId)
       }
-    })
-
-    res.status(200).json(addKomentarz);
+    });
+    res.status(201).json(newComment);
   } catch (error) {
-    return res.status(404).json({ error: error});
+    res.status(400).json({ error: "Could not add comment" });
   }
-})
+});
 
 komentarzRouter.put('/:id', async (req, res) => {
   const { id } = req.params;

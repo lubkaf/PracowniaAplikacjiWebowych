@@ -385,8 +385,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   Wpis: 'Wpis',
-  Kategoria: 'Kategoria',
-  Komentarz: 'Komentarz'
+  Komentarz: 'Komentarz',
+  Kategoria: 'Kategoria'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -402,7 +402,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "wpis" | "kategoria" | "komentarz"
+    modelProps: "wpis" | "komentarz" | "kategoria"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -472,72 +472,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    Kategoria: {
-      payload: Prisma.$KategoriaPayload<ExtArgs>
-      fields: Prisma.KategoriaFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.KategoriaFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.KategoriaFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>
-        }
-        findFirst: {
-          args: Prisma.KategoriaFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.KategoriaFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>
-        }
-        findMany: {
-          args: Prisma.KategoriaFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>[]
-        }
-        create: {
-          args: Prisma.KategoriaCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>
-        }
-        createMany: {
-          args: Prisma.KategoriaCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        delete: {
-          args: Prisma.KategoriaDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>
-        }
-        update: {
-          args: Prisma.KategoriaUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>
-        }
-        deleteMany: {
-          args: Prisma.KategoriaDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.KategoriaUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        upsert: {
-          args: Prisma.KategoriaUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>
-        }
-        aggregate: {
-          args: Prisma.KategoriaAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateKategoria>
-        }
-        groupBy: {
-          args: Prisma.KategoriaGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.KategoriaGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.KategoriaCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.KategoriaCountAggregateOutputType> | number
-        }
-      }
-    }
     Komentarz: {
       payload: Prisma.$KomentarzPayload<ExtArgs>
       fields: Prisma.KomentarzFieldRefs
@@ -604,6 +538,72 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Kategoria: {
+      payload: Prisma.$KategoriaPayload<ExtArgs>
+      fields: Prisma.KategoriaFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.KategoriaFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.KategoriaFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>
+        }
+        findFirst: {
+          args: Prisma.KategoriaFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.KategoriaFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>
+        }
+        findMany: {
+          args: Prisma.KategoriaFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>[]
+        }
+        create: {
+          args: Prisma.KategoriaCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>
+        }
+        createMany: {
+          args: Prisma.KategoriaCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.KategoriaDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>
+        }
+        update: {
+          args: Prisma.KategoriaUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>
+        }
+        deleteMany: {
+          args: Prisma.KategoriaDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.KategoriaUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.KategoriaUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$KategoriaPayload>
+        }
+        aggregate: {
+          args: Prisma.KategoriaAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateKategoria>
+        }
+        groupBy: {
+          args: Prisma.KategoriaGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.KategoriaGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.KategoriaCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.KategoriaCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -645,12 +645,21 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const WpisScalarFieldEnum = {
   id: 'id',
+  Title: 'Title',
   Text: 'Text',
-  KategoriaId: 'KategoriaId',
-  KomentarzId: 'KomentarzId'
+  KategoriaId: 'KategoriaId'
 } as const
 
 export type WpisScalarFieldEnum = (typeof WpisScalarFieldEnum)[keyof typeof WpisScalarFieldEnum]
+
+
+export const KomentarzScalarFieldEnum = {
+  id: 'id',
+  Komentarz: 'Komentarz',
+  WpisId: 'WpisId'
+} as const
+
+export type KomentarzScalarFieldEnum = (typeof KomentarzScalarFieldEnum)[keyof typeof KomentarzScalarFieldEnum]
 
 
 export const KategoriaScalarFieldEnum = {
@@ -662,14 +671,6 @@ export const KategoriaScalarFieldEnum = {
 export type KategoriaScalarFieldEnum = (typeof KategoriaScalarFieldEnum)[keyof typeof KategoriaScalarFieldEnum]
 
 
-export const KomentarzScalarFieldEnum = {
-  id: 'id',
-  Komentarz: 'Komentarz'
-} as const
-
-export type KomentarzScalarFieldEnum = (typeof KomentarzScalarFieldEnum)[keyof typeof KomentarzScalarFieldEnum]
-
-
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -679,17 +680,11 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
 export const WpisOrderByRelevanceFieldEnum = {
+  Title: 'Title',
   Text: 'Text'
 } as const
 
 export type WpisOrderByRelevanceFieldEnum = (typeof WpisOrderByRelevanceFieldEnum)[keyof typeof WpisOrderByRelevanceFieldEnum]
-
-
-export const KategoriaOrderByRelevanceFieldEnum = {
-  Opis: 'Opis'
-} as const
-
-export type KategoriaOrderByRelevanceFieldEnum = (typeof KategoriaOrderByRelevanceFieldEnum)[keyof typeof KategoriaOrderByRelevanceFieldEnum]
 
 
 export const KomentarzOrderByRelevanceFieldEnum = {
@@ -697,6 +692,13 @@ export const KomentarzOrderByRelevanceFieldEnum = {
 } as const
 
 export type KomentarzOrderByRelevanceFieldEnum = (typeof KomentarzOrderByRelevanceFieldEnum)[keyof typeof KomentarzOrderByRelevanceFieldEnum]
+
+
+export const KategoriaOrderByRelevanceFieldEnum = {
+  Opis: 'Opis'
+} as const
+
+export type KategoriaOrderByRelevanceFieldEnum = (typeof KategoriaOrderByRelevanceFieldEnum)[keyof typeof KategoriaOrderByRelevanceFieldEnum]
 
 
 
@@ -828,8 +830,8 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   wpis?: Prisma.WpisOmit
-  kategoria?: Prisma.KategoriaOmit
   komentarz?: Prisma.KomentarzOmit
+  kategoria?: Prisma.KategoriaOmit
 }
 
 /* Types for Logging */

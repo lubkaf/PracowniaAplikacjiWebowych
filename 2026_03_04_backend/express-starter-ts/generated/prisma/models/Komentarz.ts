@@ -28,50 +28,60 @@ export type AggregateKomentarz = {
 
 export type KomentarzAvgAggregateOutputType = {
   id: number | null
+  WpisId: number | null
 }
 
 export type KomentarzSumAggregateOutputType = {
   id: number | null
+  WpisId: number | null
 }
 
 export type KomentarzMinAggregateOutputType = {
   id: number | null
   Komentarz: string | null
+  WpisId: number | null
 }
 
 export type KomentarzMaxAggregateOutputType = {
   id: number | null
   Komentarz: string | null
+  WpisId: number | null
 }
 
 export type KomentarzCountAggregateOutputType = {
   id: number
   Komentarz: number
+  WpisId: number
   _all: number
 }
 
 
 export type KomentarzAvgAggregateInputType = {
   id?: true
+  WpisId?: true
 }
 
 export type KomentarzSumAggregateInputType = {
   id?: true
+  WpisId?: true
 }
 
 export type KomentarzMinAggregateInputType = {
   id?: true
   Komentarz?: true
+  WpisId?: true
 }
 
 export type KomentarzMaxAggregateInputType = {
   id?: true
   Komentarz?: true
+  WpisId?: true
 }
 
 export type KomentarzCountAggregateInputType = {
   id?: true
   Komentarz?: true
+  WpisId?: true
   _all?: true
 }
 
@@ -164,6 +174,7 @@ export type KomentarzGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 export type KomentarzGroupByOutputType = {
   id: number
   Komentarz: string
+  WpisId: number
   _count: KomentarzCountAggregateOutputType | null
   _avg: KomentarzAvgAggregateOutputType | null
   _sum: KomentarzSumAggregateOutputType | null
@@ -192,13 +203,15 @@ export type KomentarzWhereInput = {
   NOT?: Prisma.KomentarzWhereInput | Prisma.KomentarzWhereInput[]
   id?: Prisma.IntFilter<"Komentarz"> | number
   Komentarz?: Prisma.StringFilter<"Komentarz"> | string
-  Wpis?: Prisma.WpisListRelationFilter
+  WpisId?: Prisma.IntFilter<"Komentarz"> | number
+  Wpis?: Prisma.XOR<Prisma.WpisScalarRelationFilter, Prisma.WpisWhereInput>
 }
 
 export type KomentarzOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   Komentarz?: Prisma.SortOrder
-  Wpis?: Prisma.WpisOrderByRelationAggregateInput
+  WpisId?: Prisma.SortOrder
+  Wpis?: Prisma.WpisOrderByWithRelationInput
   _relevance?: Prisma.KomentarzOrderByRelevanceInput
 }
 
@@ -208,12 +221,14 @@ export type KomentarzWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.KomentarzWhereInput[]
   NOT?: Prisma.KomentarzWhereInput | Prisma.KomentarzWhereInput[]
   Komentarz?: Prisma.StringFilter<"Komentarz"> | string
-  Wpis?: Prisma.WpisListRelationFilter
+  WpisId?: Prisma.IntFilter<"Komentarz"> | number
+  Wpis?: Prisma.XOR<Prisma.WpisScalarRelationFilter, Prisma.WpisWhereInput>
 }, "id">
 
 export type KomentarzOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   Komentarz?: Prisma.SortOrder
+  WpisId?: Prisma.SortOrder
   _count?: Prisma.KomentarzCountOrderByAggregateInput
   _avg?: Prisma.KomentarzAvgOrderByAggregateInput
   _max?: Prisma.KomentarzMaxOrderByAggregateInput
@@ -227,33 +242,35 @@ export type KomentarzScalarWhereWithAggregatesInput = {
   NOT?: Prisma.KomentarzScalarWhereWithAggregatesInput | Prisma.KomentarzScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Komentarz"> | number
   Komentarz?: Prisma.StringWithAggregatesFilter<"Komentarz"> | string
+  WpisId?: Prisma.IntWithAggregatesFilter<"Komentarz"> | number
 }
 
 export type KomentarzCreateInput = {
   Komentarz: string
-  Wpis?: Prisma.WpisCreateNestedManyWithoutKomentarzInput
+  Wpis: Prisma.WpisCreateNestedOneWithoutKomentarzeInput
 }
 
 export type KomentarzUncheckedCreateInput = {
   id?: number
   Komentarz: string
-  Wpis?: Prisma.WpisUncheckedCreateNestedManyWithoutKomentarzInput
+  WpisId: number
 }
 
 export type KomentarzUpdateInput = {
   Komentarz?: Prisma.StringFieldUpdateOperationsInput | string
-  Wpis?: Prisma.WpisUpdateManyWithoutKomentarzNestedInput
+  Wpis?: Prisma.WpisUpdateOneRequiredWithoutKomentarzeNestedInput
 }
 
 export type KomentarzUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   Komentarz?: Prisma.StringFieldUpdateOperationsInput | string
-  Wpis?: Prisma.WpisUncheckedUpdateManyWithoutKomentarzNestedInput
+  WpisId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type KomentarzCreateManyInput = {
   id?: number
   Komentarz: string
+  WpisId: number
 }
 
 export type KomentarzUpdateManyMutationInput = {
@@ -263,11 +280,17 @@ export type KomentarzUpdateManyMutationInput = {
 export type KomentarzUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   Komentarz?: Prisma.StringFieldUpdateOperationsInput | string
+  WpisId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type KomentarzScalarRelationFilter = {
-  is?: Prisma.KomentarzWhereInput
-  isNot?: Prisma.KomentarzWhereInput
+export type KomentarzListRelationFilter = {
+  every?: Prisma.KomentarzWhereInput
+  some?: Prisma.KomentarzWhereInput
+  none?: Prisma.KomentarzWhereInput
+}
+
+export type KomentarzOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type KomentarzOrderByRelevanceInput = {
@@ -279,38 +302,71 @@ export type KomentarzOrderByRelevanceInput = {
 export type KomentarzCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   Komentarz?: Prisma.SortOrder
+  WpisId?: Prisma.SortOrder
 }
 
 export type KomentarzAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  WpisId?: Prisma.SortOrder
 }
 
 export type KomentarzMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   Komentarz?: Prisma.SortOrder
+  WpisId?: Prisma.SortOrder
 }
 
 export type KomentarzMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   Komentarz?: Prisma.SortOrder
+  WpisId?: Prisma.SortOrder
 }
 
 export type KomentarzSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  WpisId?: Prisma.SortOrder
 }
 
-export type KomentarzCreateNestedOneWithoutWpisInput = {
-  create?: Prisma.XOR<Prisma.KomentarzCreateWithoutWpisInput, Prisma.KomentarzUncheckedCreateWithoutWpisInput>
-  connectOrCreate?: Prisma.KomentarzCreateOrConnectWithoutWpisInput
-  connect?: Prisma.KomentarzWhereUniqueInput
+export type KomentarzCreateNestedManyWithoutWpisInput = {
+  create?: Prisma.XOR<Prisma.KomentarzCreateWithoutWpisInput, Prisma.KomentarzUncheckedCreateWithoutWpisInput> | Prisma.KomentarzCreateWithoutWpisInput[] | Prisma.KomentarzUncheckedCreateWithoutWpisInput[]
+  connectOrCreate?: Prisma.KomentarzCreateOrConnectWithoutWpisInput | Prisma.KomentarzCreateOrConnectWithoutWpisInput[]
+  createMany?: Prisma.KomentarzCreateManyWpisInputEnvelope
+  connect?: Prisma.KomentarzWhereUniqueInput | Prisma.KomentarzWhereUniqueInput[]
 }
 
-export type KomentarzUpdateOneRequiredWithoutWpisNestedInput = {
-  create?: Prisma.XOR<Prisma.KomentarzCreateWithoutWpisInput, Prisma.KomentarzUncheckedCreateWithoutWpisInput>
-  connectOrCreate?: Prisma.KomentarzCreateOrConnectWithoutWpisInput
-  upsert?: Prisma.KomentarzUpsertWithoutWpisInput
-  connect?: Prisma.KomentarzWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.KomentarzUpdateToOneWithWhereWithoutWpisInput, Prisma.KomentarzUpdateWithoutWpisInput>, Prisma.KomentarzUncheckedUpdateWithoutWpisInput>
+export type KomentarzUncheckedCreateNestedManyWithoutWpisInput = {
+  create?: Prisma.XOR<Prisma.KomentarzCreateWithoutWpisInput, Prisma.KomentarzUncheckedCreateWithoutWpisInput> | Prisma.KomentarzCreateWithoutWpisInput[] | Prisma.KomentarzUncheckedCreateWithoutWpisInput[]
+  connectOrCreate?: Prisma.KomentarzCreateOrConnectWithoutWpisInput | Prisma.KomentarzCreateOrConnectWithoutWpisInput[]
+  createMany?: Prisma.KomentarzCreateManyWpisInputEnvelope
+  connect?: Prisma.KomentarzWhereUniqueInput | Prisma.KomentarzWhereUniqueInput[]
+}
+
+export type KomentarzUpdateManyWithoutWpisNestedInput = {
+  create?: Prisma.XOR<Prisma.KomentarzCreateWithoutWpisInput, Prisma.KomentarzUncheckedCreateWithoutWpisInput> | Prisma.KomentarzCreateWithoutWpisInput[] | Prisma.KomentarzUncheckedCreateWithoutWpisInput[]
+  connectOrCreate?: Prisma.KomentarzCreateOrConnectWithoutWpisInput | Prisma.KomentarzCreateOrConnectWithoutWpisInput[]
+  upsert?: Prisma.KomentarzUpsertWithWhereUniqueWithoutWpisInput | Prisma.KomentarzUpsertWithWhereUniqueWithoutWpisInput[]
+  createMany?: Prisma.KomentarzCreateManyWpisInputEnvelope
+  set?: Prisma.KomentarzWhereUniqueInput | Prisma.KomentarzWhereUniqueInput[]
+  disconnect?: Prisma.KomentarzWhereUniqueInput | Prisma.KomentarzWhereUniqueInput[]
+  delete?: Prisma.KomentarzWhereUniqueInput | Prisma.KomentarzWhereUniqueInput[]
+  connect?: Prisma.KomentarzWhereUniqueInput | Prisma.KomentarzWhereUniqueInput[]
+  update?: Prisma.KomentarzUpdateWithWhereUniqueWithoutWpisInput | Prisma.KomentarzUpdateWithWhereUniqueWithoutWpisInput[]
+  updateMany?: Prisma.KomentarzUpdateManyWithWhereWithoutWpisInput | Prisma.KomentarzUpdateManyWithWhereWithoutWpisInput[]
+  deleteMany?: Prisma.KomentarzScalarWhereInput | Prisma.KomentarzScalarWhereInput[]
+}
+
+export type KomentarzUncheckedUpdateManyWithoutWpisNestedInput = {
+  create?: Prisma.XOR<Prisma.KomentarzCreateWithoutWpisInput, Prisma.KomentarzUncheckedCreateWithoutWpisInput> | Prisma.KomentarzCreateWithoutWpisInput[] | Prisma.KomentarzUncheckedCreateWithoutWpisInput[]
+  connectOrCreate?: Prisma.KomentarzCreateOrConnectWithoutWpisInput | Prisma.KomentarzCreateOrConnectWithoutWpisInput[]
+  upsert?: Prisma.KomentarzUpsertWithWhereUniqueWithoutWpisInput | Prisma.KomentarzUpsertWithWhereUniqueWithoutWpisInput[]
+  createMany?: Prisma.KomentarzCreateManyWpisInputEnvelope
+  set?: Prisma.KomentarzWhereUniqueInput | Prisma.KomentarzWhereUniqueInput[]
+  disconnect?: Prisma.KomentarzWhereUniqueInput | Prisma.KomentarzWhereUniqueInput[]
+  delete?: Prisma.KomentarzWhereUniqueInput | Prisma.KomentarzWhereUniqueInput[]
+  connect?: Prisma.KomentarzWhereUniqueInput | Prisma.KomentarzWhereUniqueInput[]
+  update?: Prisma.KomentarzUpdateWithWhereUniqueWithoutWpisInput | Prisma.KomentarzUpdateWithWhereUniqueWithoutWpisInput[]
+  updateMany?: Prisma.KomentarzUpdateManyWithWhereWithoutWpisInput | Prisma.KomentarzUpdateManyWithWhereWithoutWpisInput[]
+  deleteMany?: Prisma.KomentarzScalarWhereInput | Prisma.KomentarzScalarWhereInput[]
 }
 
 export type KomentarzCreateWithoutWpisInput = {
@@ -327,15 +383,39 @@ export type KomentarzCreateOrConnectWithoutWpisInput = {
   create: Prisma.XOR<Prisma.KomentarzCreateWithoutWpisInput, Prisma.KomentarzUncheckedCreateWithoutWpisInput>
 }
 
-export type KomentarzUpsertWithoutWpisInput = {
-  update: Prisma.XOR<Prisma.KomentarzUpdateWithoutWpisInput, Prisma.KomentarzUncheckedUpdateWithoutWpisInput>
-  create: Prisma.XOR<Prisma.KomentarzCreateWithoutWpisInput, Prisma.KomentarzUncheckedCreateWithoutWpisInput>
-  where?: Prisma.KomentarzWhereInput
+export type KomentarzCreateManyWpisInputEnvelope = {
+  data: Prisma.KomentarzCreateManyWpisInput | Prisma.KomentarzCreateManyWpisInput[]
+  skipDuplicates?: boolean
 }
 
-export type KomentarzUpdateToOneWithWhereWithoutWpisInput = {
-  where?: Prisma.KomentarzWhereInput
+export type KomentarzUpsertWithWhereUniqueWithoutWpisInput = {
+  where: Prisma.KomentarzWhereUniqueInput
+  update: Prisma.XOR<Prisma.KomentarzUpdateWithoutWpisInput, Prisma.KomentarzUncheckedUpdateWithoutWpisInput>
+  create: Prisma.XOR<Prisma.KomentarzCreateWithoutWpisInput, Prisma.KomentarzUncheckedCreateWithoutWpisInput>
+}
+
+export type KomentarzUpdateWithWhereUniqueWithoutWpisInput = {
+  where: Prisma.KomentarzWhereUniqueInput
   data: Prisma.XOR<Prisma.KomentarzUpdateWithoutWpisInput, Prisma.KomentarzUncheckedUpdateWithoutWpisInput>
+}
+
+export type KomentarzUpdateManyWithWhereWithoutWpisInput = {
+  where: Prisma.KomentarzScalarWhereInput
+  data: Prisma.XOR<Prisma.KomentarzUpdateManyMutationInput, Prisma.KomentarzUncheckedUpdateManyWithoutWpisInput>
+}
+
+export type KomentarzScalarWhereInput = {
+  AND?: Prisma.KomentarzScalarWhereInput | Prisma.KomentarzScalarWhereInput[]
+  OR?: Prisma.KomentarzScalarWhereInput[]
+  NOT?: Prisma.KomentarzScalarWhereInput | Prisma.KomentarzScalarWhereInput[]
+  id?: Prisma.IntFilter<"Komentarz"> | number
+  Komentarz?: Prisma.StringFilter<"Komentarz"> | string
+  WpisId?: Prisma.IntFilter<"Komentarz"> | number
+}
+
+export type KomentarzCreateManyWpisInput = {
+  id?: number
+  Komentarz: string
 }
 
 export type KomentarzUpdateWithoutWpisInput = {
@@ -347,42 +427,18 @@ export type KomentarzUncheckedUpdateWithoutWpisInput = {
   Komentarz?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-
-/**
- * Count Type KomentarzCountOutputType
- */
-
-export type KomentarzCountOutputType = {
-  Wpis: number
+export type KomentarzUncheckedUpdateManyWithoutWpisInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  Komentarz?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type KomentarzCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  Wpis?: boolean | KomentarzCountOutputTypeCountWpisArgs
-}
-
-/**
- * KomentarzCountOutputType without action
- */
-export type KomentarzCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the KomentarzCountOutputType
-   */
-  select?: Prisma.KomentarzCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * KomentarzCountOutputType without action
- */
-export type KomentarzCountOutputTypeCountWpisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.WpisWhereInput
-}
 
 
 export type KomentarzSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   Komentarz?: boolean
-  Wpis?: boolean | Prisma.Komentarz$WpisArgs<ExtArgs>
-  _count?: boolean | Prisma.KomentarzCountOutputTypeDefaultArgs<ExtArgs>
+  WpisId?: boolean
+  Wpis?: boolean | Prisma.WpisDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["komentarz"]>
 
 
@@ -390,22 +446,23 @@ export type KomentarzSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type KomentarzSelectScalar = {
   id?: boolean
   Komentarz?: boolean
+  WpisId?: boolean
 }
 
-export type KomentarzOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "Komentarz", ExtArgs["result"]["komentarz"]>
+export type KomentarzOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "Komentarz" | "WpisId", ExtArgs["result"]["komentarz"]>
 export type KomentarzInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  Wpis?: boolean | Prisma.Komentarz$WpisArgs<ExtArgs>
-  _count?: boolean | Prisma.KomentarzCountOutputTypeDefaultArgs<ExtArgs>
+  Wpis?: boolean | Prisma.WpisDefaultArgs<ExtArgs>
 }
 
 export type $KomentarzPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Komentarz"
   objects: {
-    Wpis: Prisma.$WpisPayload<ExtArgs>[]
+    Wpis: Prisma.$WpisPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     Komentarz: string
+    WpisId: number
   }, ExtArgs["result"]["komentarz"]>
   composites: {}
 }
@@ -746,7 +803,7 @@ readonly fields: KomentarzFieldRefs;
  */
 export interface Prisma__KomentarzClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  Wpis<T extends Prisma.Komentarz$WpisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Komentarz$WpisArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WpisPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  Wpis<T extends Prisma.WpisDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WpisDefaultArgs<ExtArgs>>): Prisma.Prisma__WpisClient<runtime.Types.Result.GetResult<Prisma.$WpisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -778,6 +835,7 @@ export interface Prisma__KomentarzClient<T, Null = never, ExtArgs extends runtim
 export interface KomentarzFieldRefs {
   readonly id: Prisma.FieldRef<"Komentarz", 'Int'>
   readonly Komentarz: Prisma.FieldRef<"Komentarz", 'String'>
+  readonly WpisId: Prisma.FieldRef<"Komentarz", 'Int'>
 }
     
 
@@ -1118,30 +1176,6 @@ export type KomentarzDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Limit how many Komentarzs to delete.
    */
   limit?: number
-}
-
-/**
- * Komentarz.Wpis
- */
-export type Komentarz$WpisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Wpis
-   */
-  select?: Prisma.WpisSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Wpis
-   */
-  omit?: Prisma.WpisOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.WpisInclude<ExtArgs> | null
-  where?: Prisma.WpisWhereInput
-  orderBy?: Prisma.WpisOrderByWithRelationInput | Prisma.WpisOrderByWithRelationInput[]
-  cursor?: Prisma.WpisWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.WpisScalarFieldEnum | Prisma.WpisScalarFieldEnum[]
 }
 
 /**

@@ -5,11 +5,12 @@ import path from 'path'
 import { kategoriaRouter } from './routes/kategoria/kategoria_router'
 import { komentarzRouter } from './routes/komentarz/komentarz_router'
 import { wpisRouter } from './routes/wpis/wpis_router'
-
+import cors from "cors"
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 const app: Express = express()
 
+app.use(cors({origin:"*"}))
 app.get('/', (req, res) => {
   res.send('Strona główna');
 });

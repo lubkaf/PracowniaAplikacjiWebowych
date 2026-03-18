@@ -1,87 +1,58 @@
 import styles from "./post.module.scss";
 import { useQuery } from "@tanstack/react-query";
 import type { Post } from "../../types/post/Post";
-import type { Comment } from "../../types/comments/Comment";
 import { useParams } from "react-router";
+
+interface PostWithComments extends Post {
+    Komentarze: {
+        id: number;
+        Komentarz: string;
+    }[];
+}
 
 export default function Post() {
     const { id } = useParams<{ id: string }>();
 
     const {
         data: post,
-        isLoading: postLoading,
-        isError: postError,
-    } = useQuery<Post>({
+        isLoading,
+        isError,
+    } = useQuery<PostWithComments>({
         queryKey: ["post", id],
         queryFn: () =>
-            fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then((res) => {
+            fetch(`http://localhost:3000/wpis/${id}`).then((res) => {
                 if (!res.ok) throw new Error("Post not found");
                 return res.json();
             }),
         enabled: !!id,
     });
 
-    const {
-        data: comments = [],
-        isLoading: commentsLoading,
-        isError: commentsError,
-    } = useQuery<Comment[]>({
-        queryKey: ["comments", id],
-        queryFn: () =>
-            fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`).then((res) => {
-                if (!res.ok) throw new Error("Comments error");
-                return res.json();
-            }),
-        enabled: !!id,
-    });
-
-    const loading = postLoading || commentsLoading;
-    const error = postError || commentsError;
-
-    if (loading) {
-        return (
-            <main className={styles.Main}>
-                <p>Loading...</p>
-            </main>
-        );
-    }
-
-    if (error) {
-        return (
-            <main className={styles.Main}>
-                <p>Error loading data.</p>
-            </main>
-        );
-    }
-
-    if (!post) {
-        return (
-            <main className={styles.Main}>
-                <p>Post not found</p>
-            </main>
-        );
-    }
+    if (isLoading) return <main className={styles.Main}><p>Loading...</p></main>;
+    if (isError || !post) return <main className={styles.Main}><p>Error loading post.</p></main>;
 
     return (
         <main className={styles.Main}>
             <div className={styles.PostContent}>
-                <h1>{post.title}</h1>
-                <p>{post.body}</p>
+                {/* Zwróć uwagę na nazwy pól: w Prisma masz 'Text', nie 'Title' */}
+                <h1>Wpis # {post.id}</h1>
+                <p>{post.Text}</p>
             </div>
 
             <div className={styles.CommentsSection}>
-                <h2>Comments ({comments.length})</h2>
-                {comments.length === 0 ? (
+                {/* Dobieramy się do Komentarzy prosto z obiektu post */}
+                <h2>Comments ({post.Komentarze?.length || 0})</h2>
+
+                {post.Komentarze?.length === 0 ? (
                     <p className={styles.NoComments}>No comments yet</p>
                 ) : (
                     <div className={styles.CommentsList}>
-                        {comments.map((comment) => (
+                        {post.Komentarze.map((comment) => (
                             <div key={comment.id} className={styles.Comment}>
                                 <div className={styles.CommentHeader}>
-                                    <strong>{comment.name}</strong>
-                                    <span className={styles.CommentEmail}>{comment.email}</span>
+                                    <strong>ID: {comment.id}</strong>
                                 </div>
-                                <p className={styles.CommentBody}>{comment.body}</p>
+                                {/* W Prisma pole tekstowe komentarza nazywa się 'Komentarz' */}
+                                <p className={styles.CommentBody}>{comment.Komentarz}</p>
                             </div>
                         ))}
                     </div>
